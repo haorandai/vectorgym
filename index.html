@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VectorGym: A Multi-Task Benchmark for SVG Code Generation, Sketching and Editing</title>
+  <meta name="description" content="VectorGym is a benchmark of human-authored annotations for four SVG tasks: Sketch2SVG, SVG editing, Text2SVG and SVG captioning. EMNLP 2026.">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="VectorGym: A Multi-Task Benchmark for SVG Code Generation, Sketching and Editing">
+  <meta property="og:description" content="Human-authored benchmark for Sketch2SVG, SVG editing, Text2SVG and SVG captioning, with a multi-task RL baseline. EMNLP 2026.">
+  <meta property="og:image" content="assets/overview.webp">
+  <meta name="citation_title" content="VectorGym: A Multi-Task Benchmark for SVG Code Generation, Sketching and Editing">
+  <meta name="citation_author" content="Joan Rodriguez">
+  <meta name="citation_author" content="Haotian Zhang">
+  <meta name="citation_author" content="Abhay Puri">
+  <meta name="citation_author" content="Haoran Dai">
+  <meta name="citation_author" content="Tianyang Zhang">
+  <meta name="citation_author" content="Meng Lin">
+  <meta name="citation_author" content="Rishav Pramanik">
+  <meta name="citation_author" content="Xiaoqing Xie">
+  <meta name="citation_author" content="Marco Terral Rodriguez">
+  <meta name="citation_author" content="Darsh Kaushik">
+  <meta name="citation_author" content="Aly Shariff">
+  <meta name="citation_author" content="Perouz Taslakian">
+  <meta name="citation_author" content="Spandana Gella">
+  <meta name="citation_author" content="Sai Rajeswar">
+  <meta name="citation_author" content="David Vazquez">
+  <meta name="citation_author" content="Christopher Pal">
+  <meta name="citation_author" content="Marco Pedersoli">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_arxiv_id" content="2603.29852">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" defer></script>
+  <script src="script.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="draft-bar">Draft for author review. Not public yet.</div>
+  <header class="site-header">
+    <div class="frame header-inner">
+      <a class="wordmark" href="#top"><span class="wordmark-mark" aria-hidden="true"></span>VectorGym</a>
+      <nav aria-label="Main navigation">
+        <a href="#tasks">Tasks</a><a href="#data">Data</a><a href="#method">Method</a><a href="#results">Results</a><a href="#citation">Citation</a>
+      </nav>
+      <a class="pill pill-dark header-cta" href="https://arxiv.org/abs/2603.29852">Read paper</a>
+    </div>
+  </header>
+
+  <main id="main" class="frame">
+    <section class="hero" id="top">
+      <p class="eyebrow">EMNLP 2026 · Benchmark</p>
+      <h1>VectorGym</h1>
+      <p class="hero-title">A Multi-Task Benchmark for SVG Code Generation, Sketching and&nbsp;Editing</p>
+      <p class="hero-deck">Four tasks with expert human annotations: turning <span class="chip">sketches</span> into SVG, <span class="chip">editing</span> SVG code, generating SVG from <span class="chip">text</span>, and <span class="chip">captioning</span> SVG.</p>
+      <div class="hero-actions">
+        <a class="pill pill-dark" href="https://arxiv.org/abs/2603.29852">Read the paper <span aria-hidden="true">↗</span></a>
+        <a class="pill pill-light" href="https://huggingface.co/datasets/ServiceNow/VectorGym">Dataset on Hugging Face <span aria-hidden="true">↗</span></a>
+        <a class="pill pill-ghost" href="#citation">BibTeX</a>
+      </div>
+      <figure class="window hero-window">
+        <div class="window-bar"><span></span><span></span><span></span><em>VectorGym</em></div>
+        <a class="window-body" href="assets/overview.webp"><img src="assets/overview.webp" width="1852" height="528" alt="VectorGym overview: real SVGs from GitHub are annotated by humans with hand-drawn sketches, complex SVG edits and detailed captions, which become the four benchmark tasks VG-Sketch, VG-Edit, VG-Text and VG-Cap."></a>
+        <figcaption>Real SVGs from GitHub are annotated by people who draw sketches, write complex edits and describe each graphic. The annotations become four tasks.</figcaption>
+      </figure>
+    </section>
+
+    <section class="people" aria-labelledby="authors-heading">
+      <h2 id="authors-heading" class="label">Authors</h2>
+      <ul class="authors">
+        <li>Joan Rodriguez<sup>1,2,3*</sup></li><li>Haotian Zhang<sup>3,4*</sup></li><li>Abhay Puri<sup>5</sup></li><li>Haoran Dai<sup>3,6</sup></li><li>Tianyang Zhang<sup>3,7</sup></li><li>Meng Lin<sup>3,8</sup></li><li>Rishav Pramanik<sup>9</sup></li><li>Xiaoqing Xie<sup>3,10</sup></li><li>Marco Terral Rodriguez<sup>3,11</sup></li><li>Darsh Kaushik<sup>1,3</sup></li><li>Aly Shariff<sup>12</sup></li><li>Perouz Taslakian<sup>5</sup></li><li>Spandana Gella<sup>5</sup></li><li>Sai Rajeswar<sup>1,5</sup></li><li>David Vazquez<sup>5</sup></li><li>Christopher Pal<sup>1,5,13,14</sup></li><li>Marco Pedersoli<sup>1,2</sup></li>
+      </ul>
+      <ol class="affiliations">
+        <li>Mila, Quebec AI Institute</li><li>ÉTS Montréal</li><li>QuiverAI</li><li>Columbia University</li><li>ServiceNow Research</li><li>Illinois Institute of Technology</li><li>University of Massachusetts Amherst</li><li>University of Illinois Urbana-Champaign</li><li>Stony Brook University</li><li>Minzu University of China</li><li>Computer Vision Center</li><li>University of Waterloo</li><li>Polytechnique Montréal</li><li>Canada CIFAR AI Chair</li>
+      </ol>
+      <p class="note">* Equal contribution.</p>
+    </section>
+
+    <section class="block" id="tasks" aria-labelledby="tasks-heading">
+      <p class="eyebrow">01 · Tasks</p>
+      <h2 id="tasks-heading">Four ways to test visual code generation</h2>
+      <p class="lede">An SVG is a program: its code exposes geometry, style and structure, and it maps directly to a rendered image. That lets one benchmark check visual fidelity, valid syntax and structured manipulation together.</p>
+      <div class="task-grid">
+        <article class="task">
+          <p class="task-tag">VG-Sketch</p><h3>Sketch2SVG</h3>
+          <p>Turn a rough, hand-drawn sketch into clean SVG code. The model has to infer structure, topology and spatial relations from noisy, incomplete strokes rather than trace a clean image. This task is new in VectorGym.</p>
+        </article>
+        <article class="task">
+          <p class="task-tag">VG-Edit</p><h3>SVG Editing</h3>
+          <p>Apply a natural-language edit to an existing SVG. Human-written edits add objects, change logo text, turn a pie chart into a bar chart or change a facial expression, and often use text, gradients or animation.</p>
+        </article>
+        <article class="task">
+          <p class="task-tag">VG-Text</p><h3>Text2SVG</h3>
+          <p>Generate a complete SVG from a description, from simple shapes to detailed illustrations. The descriptions come from human-validated captions rewritten as instructions at several levels of detail.</p>
+        </article>
+        <article class="task">
+          <p class="task-tag">VG-Cap</p><h3>SVG Captioning</h3>
+          <p>The inverse of Text2SVG: read SVG code and describe what it shows, covering both the content and visual properties such as style and color scheme.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="data" aria-labelledby="data-heading">
+      <p class="eyebrow">02 · Data</p>
+      <h2 id="data-heading">Real SVGs, edited and sketched by people</h2>
+      <p class="lede">VectorGym is built from SVG-Stack, a collection of SVGs gathered from GitHub: icons, diagrams, emojis, fonts, logotypes and complex illustrations, with their original primitives intact. More than 20 annotators from two annotation vendors, with backgrounds in design, vector graphics and coding, drew the sketches, wrote the edits and described the graphics.</p>
+      <dl class="stats">
+        <div><dt>Candidate SVGs</dt><dd>7,000</dd><span>from the SVG-Stack training split</span></div>
+        <div><dt>Train / validation</dt><dd>6.5k / 100</dd><span>after filtering and human inspection</span></div>
+        <div><dt>Test</dt><dd>300</dd><span>from the SVG-Stack test split</span></div>
+        <div><dt>Annotators</dt><dd>20+</dd><span>design, vector graphics and coding</span></div>
+      </dl>
+      <p class="fine">Filtering kept SVGs of 2k to 8k tokens with normalized color entropy above 0.55, then sampled them for human inspection.</p>
+      <figure class="window wide">
+        <div class="window-bar"><span></span><span></span><span></span><em>VG-Edit · test examples</em></div>
+        <a class="window-body" href="assets/edit-examples.webp"><img src="assets/edit-examples.webp" width="2400" height="1338" loading="lazy" alt="21 randomly sampled VG-Edit test examples, each with an editing instruction, the source SVG and the target SVG."></a>
+        <figcaption>21 random VG-Edit test examples: the instruction, the source SVG and the human-made target.</figcaption>
+      </figure>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison of SVG datasets">
+        <table class="compare">
+          <caption>How VectorGym compares with other SVG datasets (paper Table 1).</caption>
+          <thead><tr><th scope="col">Dataset</th><th scope="col">SVG type</th><th scope="col">Samples</th><th scope="col">Multi-task</th><th scope="col">Primitives</th><th scope="col">Edits</th><th scope="col">Sketches</th><th scope="col">Human</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">SVGBench</th><td>In-the-wild</td><td>10k</td><td>–</td><td>✓</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><th scope="row">VGBench</th><td>Emojis</td><td>9.5k</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><th scope="row">SVGEditBench</th><td>Emojis</td><td>1.6k</td><td>–</td><td>–</td><td>✓</td><td>–</td><td>–</td></tr>
+            <tr><th scope="row">SVGEditBench V2</th><td>Emojis</td><td>1.6k</td><td>–</td><td>–</td><td>✓</td><td>–</td><td>–</td></tr>
+            <tr><th scope="row">UniSVG</th><td>Icons</td><td>525k</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><th scope="row">SVGenius</th><td>Icons</td><td>100k</td><td>✓</td><td>–</td><td>✓</td><td>–</td><td>–</td></tr>
+            <tr class="ours"><th scope="row">VectorGym</th><td>In-the-wild</td><td>7k</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" id="method" aria-labelledby="method-heading">
+      <p class="eyebrow">03 · Method</p>
+      <h2 id="method-heading">One 8B model trained on all four tasks with rendering rewards</h2>
+      <p class="lede">The baseline fine-tunes Qwen3-VL 8B Instruct with Reinforcement Learning from Rendering Feedback (RLRF) on the VectorGym training split, all four tasks at once.</p>
+      <ol class="steps">
+        <li><span class="step-tag">Reward</span><h3>Compare what the SVG looks like</h3><p>For the three generation tasks, the predicted and reference SVGs are rendered to images and compared with perceptual similarity and pixel-space distances. For captioning, the reward is the BGE-M3 embedding similarity between the predicted and reference text.</p></li>
+        <li><span class="step-tag">Optimizer</span><h3>GRPO with batch-level normalization</h3><p>Standard GRPO normalizes rewards within each group of sampled responses. Here the centered rewards are divided by the standard deviation over the whole mini-batch:</p><div class="equation">\[A^{\text{batch}}_{i}=\frac{r_{i}-\operatorname{mean}\big(\{r_{j}\}_{j=1}^{K}\big)}{\operatorname{std}\big(\{r_{j}\}_{j=1}^{N\times K}\big)}\]</div></li>
+        <li><span class="step-tag">Curriculum</span><h3>Short answers first</h3><p>Response length stands in for difficulty. Samples are sorted by length within each task, and mini-batches draw tasks in proportion to their frequency, so training moves from short, simple examples to long, complex ones while keeping the tasks balanced.</p></li>
+      </ol>
+      <dl class="stats compact">
+        <div><dt>Rollouts per step</dt><dd>1,344</dd><span>168 samples × 8 rollouts</span></div>
+        <div><dt>Training</dt><dd>600 iters</dd><span>8 × H200, about two days (384 GPU-hours)</span></div>
+        <div><dt>VectorGym score</dt><dd>58.74 → 66.05</dd><span>+7.31 over the base 8B model; inference cost unchanged</span></div>
+      </dl>
+    </section>
+
+    <section class="block" id="results" aria-labelledby="results-heading">
+      <p class="eyebrow">04 · Results</p>
+      <h2 id="results-heading">Frontier models still leave room, and the RL baseline passes GPT-4o</h2>
+      <p class="lede">The VectorGym score averages four task scores on a 0 to 100 scale. Gemini 3 Pro leads overall. The RL-trained Qwen3-VL 8B scores 66.05, above GPT-4o (64.93) and the much larger Qwen3-VL 235B (62.32).</p>
+      <figure class="chart" aria-labelledby="chart-caption">
+        <figcaption id="chart-caption">Overall VectorGym score (higher is better; paper Table 2)</figcaption>
+        <ol class="bars">
+          <li class="closed" style="--v:73.17"><span class="bar-name">Gemini 3 Pro</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">73.17</span></li>
+          <li class="closed" style="--v:71.36"><span class="bar-name">GPT-5.1</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">71.36</span></li>
+          <li class="closed" style="--v:70.31"><span class="bar-name">Claude Sonnet 4.5</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">70.31</span></li>
+          <li class="ours" style="--v:66.05"><span class="bar-name">Qwen3-VL 8B Gym (ours)</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">66.05</span></li>
+          <li class="closed" style="--v:64.93"><span class="bar-name">GPT-4o</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">64.93</span></li>
+          <li style="--v:62.32"><span class="bar-name">Qwen3-VL 235B</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">62.32</span></li>
+          <li class="closed" style="--v:61.42"><span class="bar-name">Gemini 2.5 Flash</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">61.42</span></li>
+          <li style="--v:58.74"><span class="bar-name">Qwen3-VL 8B</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">58.74</span></li>
+          <li style="--v:57.02"><span class="bar-name">GLM-4.5V</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">57.02</span></li>
+          <li style="--v:49.16"><span class="bar-name">Qwen2.5-VL 32B</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">49.16</span></li>
+          <li style="--v:44.27"><span class="bar-name">Qwen2.5-VL 72B</span><span class="bar-track"><span class="bar"></span></span><span class="bar-val">44.27</span></li>
+        </ol>
+        <p class="legend"><span class="key key-closed" style="margin-left:0"></span>Proprietary <span class="key key-open"></span>Open-source <span class="key key-ours"></span>RL baseline</p>
+      </figure>
+
+      <div class="findings">
+        <article><p class="task-tag">Difficulty</p><h3>Text is easiest, captioning hardest</h3><p>Best VLM-judge scores: Text2SVG 93.00 (GPT-5.1), SVG editing 81.20, Sketch2SVG 72.20 and SVG captioning 70.40 (all Gemini 3 Pro).</p></article>
+        <article><p class="task-tag">Sketches</p><h3>A gap that RL narrows but does not close</h3><p>On Sketch2SVG, the open Qwen3-VL 235B and 8B reach VLM-judge scores of 40.00 and 33.00. RL raises the 8B model to 46.00, still well below Gemini 3 Pro at 72.20. Models also rarely add color that the sketch does not have.</p></article>
+        <article><p class="task-tag">Captioning</p><h3>Metrics disagree</h3><p>The RL model has the highest BGE-M3 (79.76) and ROUGE (25.58) of any model, yet a lower VLM-judge score (35.80) than Qwen3-VL 235B (40.40).</p></article>
+      </div>
+
+      <figure class="window wide">
+        <div class="window-bar"><span></span><span></span><span></span><em>VLM judge vs. human ratings</em></div>
+        <a class="window-body" href="assets/judge-vs-human.webp"><img src="assets/judge-vs-human.webp" width="2033" height="588" loading="lazy" alt="Outputs from Gemini 3, Claude 4 and GPT-4o on VG-Sketch, VG-Edit and VG-Text validation samples, each labelled with a VLM-judge score and a human score from 0 to 5."></a>
+        <figcaption>Three validation samples per task with the strongest models, scored 0 to 5 by the VLM judge and by people. People tend to be stricter; the judge clusters around the middle when unsure.</figcaption>
+      </figure>
+
+      <details class="tables">
+        <summary>Full results by task</summary>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Sketch2SVG and SVG editing results">
+          <table class="results">
+            <caption>Sketch2SVG and SVG editing (paper Table 2). Score averages VLM judge, DINO, 100 − MSE and 100 − LPIPS.</caption>
+            <thead>
+              <tr><th scope="col" rowspan="2">Model</th><th scope="colgroup" colspan="5">Sketch2SVG</th><th scope="colgroup" colspan="5">SVG editing</th></tr>
+              <tr><th scope="col">VLM J ↑</th><th scope="col">MSE ↓</th><th scope="col">DINO ↑</th><th scope="col">LPIPS ↓</th><th scope="col">Score ↑</th><th scope="col">VLM J ↑</th><th scope="col">MSE ↓</th><th scope="col">DINO ↑</th><th scope="col">LPIPS ↓</th><th scope="col">Score ↑</th></tr>
+            </thead>
+            <tbody>
+              <tr class="group"><th scope="rowgroup" colspan="11">Open-source</th></tr>
+              <tr><th scope="row">Qwen2.5-VL 72B</th><td>12.80</td><td>16.43</td><td>69.87</td><td>43.95</td><td>55.57</td><td>16.60</td><td>18.68</td><td>70.35</td><td>38.21</td><td>57.52</td></tr>
+              <tr><th scope="row">Qwen2.5-VL 32B</th><td>17.80</td><td>15.15</td><td>71.63</td><td>42.65</td><td>57.91</td><td>20.20</td><td>17.04</td><td>72.31</td><td>37.05</td><td>59.61</td></tr>
+              <tr><th scope="row">GLM-4.5V</th><td>33.80</td><td>14.14</td><td>78.61</td><td>41.35</td><td>64.23</td><td>37.60</td><td>13.39</td><td>80.90</td><td>31.76</td><td>68.34</td></tr>
+              <tr><th scope="row">Qwen3-VL 8B</th><td>33.00</td><td>13.76</td><td>81.01</td><td>40.97</td><td>64.82</td><td>57.40</td><td>11.01</td><td>90.44</td><td>25.27</td><td>77.89</td></tr>
+              <tr><th scope="row">Qwen3-VL 235B</th><td>40.00</td><td>13.37</td><td>83.69</td><td>40.23</td><td>67.52</td><td>60.40</td><td>9.02</td><td>91.17</td><td>22.11</td><td>80.11</td></tr>
+              <tr class="ours"><th scope="row">Qwen3-VL 8B Gym (ours)</th><td>46.00</td><td>11.99</td><td>88.25</td><td>39.37</td><td>70.72</td><td>67.00</td><td>8.36</td><td>93.94</td><td>21.34</td><td>82.81</td></tr>
+              <tr class="group"><th scope="rowgroup" colspan="11">Proprietary</th></tr>
+              <tr><th scope="row">Gemini 2.5 Flash</th><td>36.80</td><td>13.67</td><td>79.13</td><td>40.45</td><td>65.45</td><td>65.80</td><td>9.98</td><td>90.54</td><td>21.16</td><td>81.30</td></tr>
+              <tr><th scope="row">GPT-4o</th><td>46.00</td><td>13.17</td><td>85.11</td><td>39.74</td><td>69.55</td><td>66.80</td><td>8.43</td><td>92.27</td><td>21.24</td><td>82.35</td></tr>
+              <tr><th scope="row">Claude Sonnet 4.5</th><td>58.80</td><td>12.54</td><td>88.42</td><td>39.29</td><td>73.85</td><td>79.40</td><td>6.29</td><td><b>95.61</b></td><td>16.46</td><td>88.07</td></tr>
+              <tr><th scope="row">GPT-5.1</th><td>64.00</td><td>12.28</td><td>89.47</td><td>38.42</td><td>75.69</td><td>78.00</td><td>5.92</td><td>95.59</td><td>16.83</td><td>87.71</td></tr>
+              <tr><th scope="row">Gemini 3 Pro</th><td><b>72.20</b></td><td><b>11.31</b></td><td><b>89.78</b></td><td><b>36.43</b></td><td><b>78.56</b></td><td><b>81.20</b></td><td><b>5.89</b></td><td>95.55</td><td><b>16.01</b></td><td><b>88.71</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Text2SVG and SVG captioning results">
+          <table class="results">
+            <caption>Text2SVG and SVG captioning (paper Table 3). Score is the unweighted mean of the metrics in each task.</caption>
+            <thead>
+              <tr><th scope="col" rowspan="2">Model</th><th scope="colgroup" colspan="4">Text2SVG</th><th scope="colgroup" colspan="4">SVG captioning</th></tr>
+              <tr><th scope="col">VLM J ↑</th><th scope="col">CLIP ↑</th><th scope="col">DINO ↑</th><th scope="col">Score ↑</th><th scope="col">VLM J ↑</th><th scope="col">BGE-M3 ↑</th><th scope="col">ROUGE ↑</th><th scope="col">Score ↑</th></tr>
+            </thead>
+            <tbody>
+              <tr class="group"><th scope="rowgroup" colspan="9">Open-source</th></tr>
+              <tr><th scope="row">Qwen2.5-VL 72B</th><td>25.80</td><td>25.78</td><td>71.00</td><td>40.86</td><td>9.60</td><td>52.08</td><td>7.70</td><td>23.13</td></tr>
+              <tr><th scope="row">Qwen3-VL 8B</th><td>55.20</td><td>29.48</td><td>81.71</td><td>55.46</td><td>25.20</td><td>66.27</td><td>18.87</td><td>36.78</td></tr>
+              <tr><th scope="row">GLM-4.5V</th><td>59.40</td><td>28.91</td><td>80.44</td><td>56.25</td><td>38.00</td><td>62.85</td><td>16.86</td><td>39.24</td></tr>
+              <tr><th scope="row">Qwen2.5-VL 32B</th><td>22.60</td><td>24.95</td><td>68.96</td><td>38.84</td><td>38.40</td><td>66.10</td><td>16.35</td><td>40.28</td></tr>
+              <tr><th scope="row">Qwen3-VL 235B</th><td>66.80</td><td>29.60</td><td>82.63</td><td>59.68</td><td>40.40</td><td>67.14</td><td>18.33</td><td>41.96</td></tr>
+              <tr class="ours"><th scope="row">Qwen3-VL 8B Gym (ours)</th><td>72.80</td><td>30.55</td><td>87.46</td><td>63.60</td><td>35.80</td><td><b>79.76</b></td><td><b>25.58</b></td><td>47.05</td></tr>
+              <tr class="group"><th scope="rowgroup" colspan="9">Proprietary</th></tr>
+              <tr><th scope="row">GPT-4o</th><td>74.60</td><td>30.43</td><td>84.23</td><td>63.09</td><td>46.00</td><td>66.82</td><td>21.33</td><td>44.72</td></tr>
+              <tr><th scope="row">Gemini 2.5 Flash</th><td>54.00</td><td>27.67</td><td>77.65</td><td>53.11</td><td>45.80</td><td>69.24</td><td>22.45</td><td>45.83</td></tr>
+              <tr><th scope="row">Claude Sonnet 4.5</th><td>89.00</td><td><b>30.91</b></td><td>87.66</td><td>69.19</td><td>59.20</td><td>70.17</td><td>21.08</td><td>50.15</td></tr>
+              <tr><th scope="row">GPT-5.1</th><td><b>93.00</b></td><td>30.83</td><td>88.20</td><td><b>70.68</b></td><td>62.20</td><td>70.45</td><td>21.49</td><td>51.38</td></tr>
+              <tr><th scope="row">Gemini 3 Pro</th><td>89.80</td><td>30.87</td><td><b>89.09</b></td><td>69.92</td><td><b>70.40</b></td><td>72.27</td><td>23.83</td><td><b>55.50</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fine">Bold marks the best value in each column. Numbers are copied from the camera-ready paper (arXiv v2).</p>
+      </details>
+    </section>
+
+    <section class="block" id="citation" aria-labelledby="citation-heading">
+      <p class="eyebrow">05 · Citation</p>
+      <h2 id="citation-heading">Cite VectorGym</h2>
+      <div class="code-window">
+        <div class="window-bar"><span></span><span></span><span></span><em>vectorgym.bib</em><button type="button" id="copy-bib" class="copy">Copy</button></div>
+<pre><code id="bibtex">@misc{rodriguez2026vectorgym,
+  title         = {VectorGym: A Multi-Task Benchmark for SVG Code Generation,
+                   Sketching and Editing},
+  author        = {Joan Rodriguez and Haotian Zhang and Abhay Puri and Haoran Dai and
+                   Tianyang Zhang and Meng Lin and Rishav Pramanik and Xiaoqing Xie and
+                   Marco Terral Rodriguez and Darsh Kaushik and Aly Shariff and
+                   Perouz Taslakian and Spandana Gella and Sai Rajeswar and
+                   David Vazquez and Christopher Pal and Marco Pedersoli},
+  year          = {2026},
+  eprint        = {2603.29852},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GR},
+  note          = {Accepted to EMNLP 2026}
+}</code></pre>
+      </div>
+      <p class="fine" id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="frame footer-inner">
+      <span>VectorGym · EMNLP 2026</span>
+      <span>Paper and figures CC BY 4.0 (arXiv 2603.29852). Dataset Apache-2.0 on Hugging Face.</span>
+    </div>
+  </footer>
+</body>
+</html>

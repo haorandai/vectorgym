@@ -57,7 +57,7 @@
       <p class="eyebrow">EMNLP 2026 · Benchmark</p>
       <h1>VectorGym</h1>
       <p class="hero-title">A Multi-Task Benchmark for SVG Code Generation, Sketching and&nbsp;Editing</p>
-      <p class="hero-deck">Four tasks with expert human annotations: turning <span class="chip">sketches</span> into SVG, <span class="chip">editing</span> SVG code, generating SVG from <span class="chip">text</span>, and <span class="chip">captioning</span> SVG.</p>
+      <p class="hero-deck">Four tasks with expert human annotations: <span class="chip">sketch</span>-to-SVG generation, SVG <span class="chip">editing</span>, <span class="chip">text</span>-to-SVG generation and SVG <span class="chip">captioning</span>.</p>
       <div class="hero-actions">
         <a class="pill pill-dark" href="https://arxiv.org/abs/2603.29852">Read the paper <span aria-hidden="true">↗</span></a>
         <a class="pill pill-light" href="https://huggingface.co/datasets/ServiceNow/VectorGym">Dataset on Hugging Face <span aria-hidden="true">↗</span></a>
@@ -66,7 +66,7 @@
       <figure class="window hero-window">
         <div class="window-bar"><span></span><span></span><span></span><em>VectorGym</em></div>
         <a class="window-body" href="assets/overview.webp"><img src="assets/overview.webp" width="1852" height="528" fetchpriority="high" alt="VectorGym overview: real SVGs from GitHub are annotated by humans with hand-drawn sketches, complex SVG edits and detailed captions, which become the four benchmark tasks VG-Sketch, VG-Edit, VG-Text and VG-Cap."></a>
-        <figcaption>Human experts annotate real SVGs from GitHub: they draw sketches, write complex edits and describe each graphic. The annotations become four tasks.</figcaption>
+        <figcaption>Human experts annotate real-world SVGs from GitHub with hand-drawn sketches, complex edits and detailed descriptions, which define the four tasks.</figcaption>
       </figure>
     </section>
 
@@ -83,43 +83,43 @@
 
     <section class="block" id="tasks" aria-labelledby="tasks-heading">
       <p class="eyebrow">01 · Tasks</p>
-      <h2 id="tasks-heading">Four ways to test visual code generation</h2>
-      <p class="lede">An SVG is a program: its code exposes geometry, style and structure, and it maps directly to a rendered image. That lets one benchmark check visual fidelity, valid syntax and structured manipulation together.</p>
+      <h2 id="tasks-heading">Four tasks for visual code generation</h2>
+      <p class="lede">An SVG is a program: its code specifies geometry, style and structure, and renders directly to an image. One benchmark can therefore assess visual fidelity, syntactic validity and structured manipulation together.</p>
       <div class="task-grid">
         <article class="task">
           <p class="task-tag">VG-Sketch</p><h3>Sketch2SVG</h3>
-          <p>Turn a rough, hand-drawn sketch into clean SVG code. The model has to infer structure, topology and spatial relations from noisy, incomplete strokes rather than trace a clean image. This task is new in VectorGym.</p>
+          <p>Convert a rough hand-drawn sketch into clean SVG code. Unlike image vectorization, the model must infer structure, topology and spatial relations from noisy, incomplete strokes. VectorGym introduces this task.</p>
         </article>
         <article class="task">
           <p class="task-tag">VG-Edit</p><h3>SVG Editing</h3>
-          <p>Apply a natural-language edit to an existing SVG. Human-written edits add objects, change logo text, turn a pie chart into a bar chart or change a facial expression, and often use text, gradients or animation.</p>
+          <p>Apply a natural-language instruction to an existing SVG. The human-written edits require semantic understanding and several coordinated changes, such as adding objects, changing logo text, converting a pie chart to a bar chart or altering a facial expression, and often involve text, gradients or animation.</p>
         </article>
         <article class="task">
           <p class="task-tag">VG-Text</p><h3>Text2SVG</h3>
-          <p>Generate a complete SVG from a description, from simple shapes to detailed illustrations. The descriptions come from human-validated captions rewritten as instructions at several levels of detail.</p>
+          <p>Generate a complete SVG from a text description, ranging from simple shapes to complex illustrations. Prompts are human-validated captions rewritten as instructions at several levels of detail.</p>
         </article>
         <article class="task">
           <p class="task-tag">VG-Cap</p><h3>SVG Captioning</h3>
-          <p>The inverse of Text2SVG: read SVG code and describe what it shows, covering both the content and visual properties such as style and color scheme.</p>
+          <p>The inverse of Text2SVG: describe an SVG from its code, covering both its content and visual properties such as style and color scheme.</p>
         </article>
       </div>
     </section>
 
     <section class="block" id="data" aria-labelledby="data-heading">
       <p class="eyebrow">02 · Data</p>
-      <h2 id="data-heading">Real SVGs, edited and sketched by people</h2>
-      <p class="lede">VectorGym is built from SVG-Stack, a collection of SVGs gathered from GitHub: icons, diagrams, emojis, fonts, logotypes and complex illustrations, with their original primitives intact. More than 20 annotators from two annotation vendors, with backgrounds in design, vector graphics and coding, drew the sketches, wrote the edits and described the graphics.</p>
+      <h2 id="data-heading">Real-world SVGs annotated by human experts</h2>
+      <p class="lede">VectorGym draws on SVG-Stack, a collection of SVGs from GitHub that spans icons, diagrams, emojis, fonts, logotypes and complex illustrations and keeps their original primitives. More than 20 annotators from two vendors, with expertise in design, vector graphics and coding, created the sketches, edits and descriptions.</p>
       <dl class="stats">
         <div><dt>Candidate SVGs</dt><dd>7,000</dd><dd class="stat-note">from the SVG-Stack training split</dd></div>
         <div><dt>Training set</dt><dd>6.5k</dd><dd class="stat-note">after filtering; 100 of these form the validation set</dd></div>
         <div><dt>Test</dt><dd>300</dd><dd class="stat-note">from the SVG-Stack test split</dd></div>
         <div><dt>Annotators</dt><dd>20+</dd><dd class="stat-note">design, vector graphics and coding</dd></div>
       </dl>
-      <p class="fine">Filtering kept SVGs of 2k to 8k tokens with normalized color entropy above 0.55, then sampled them for human inspection.</p>
+      <p class="fine">Filters retained SVGs of 2k to 8k tokens with normalized color entropy above 0.55; a random subsample was then inspected by hand.</p>
       <figure class="window wide">
         <div class="window-bar"><span></span><span></span><span></span><em>VG-Edit · test examples</em></div>
         <a class="window-body" href="assets/edit-examples.webp"><img src="assets/edit-examples.webp" width="2400" height="1338" loading="lazy" alt="Randomly sampled VG-Edit test examples, each with an editing instruction, the source SVG and the target SVG."></a>
-        <figcaption>Randomly sampled VG-Edit test examples: the instruction, the source SVG and the target made by a human annotator.</figcaption>
+        <figcaption>Randomly sampled VG-Edit test examples, each with the instruction, the source SVG and the annotator's target SVG.</figcaption>
       </figure>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison of SVG datasets">
         <table class="compare">
@@ -140,12 +140,12 @@
 
     <section class="block" id="method" aria-labelledby="method-heading">
       <p class="eyebrow">03 · Method</p>
-      <h2 id="method-heading">One 8B model trained on all four tasks with rendering and text-similarity rewards</h2>
-      <p class="lede">The baseline fine-tunes Qwen3-VL 8B Instruct with Reinforcement Learning from Rendering Feedback (RLRF) on the VectorGym training split, all four tasks at once.</p>
+      <h2 id="method-heading">Multi-task reinforcement learning with rendering and text-similarity rewards</h2>
+      <p class="lede">The baseline fine-tunes Qwen3-VL 8B Instruct on all four tasks jointly with Reinforcement Learning from Rendering Feedback (RLRF), using the VectorGym training split.</p>
       <ol class="steps">
-        <li><span class="step-tag">Reward</span><h3>Compare what the SVG looks like</h3><p>For the three generation tasks, the predicted and reference SVGs are rendered to images and compared with perceptual similarity and pixel-space distances. For captioning, the reward is the BGE-M3 embedding similarity between the predicted and reference text.</p></li>
-        <li><span class="step-tag">Optimizer</span><h3>GRPO with batch-level normalization</h3><p>Standard GRPO normalizes rewards within each group of sampled responses. Here the centered rewards are divided by the standard deviation over the whole mini-batch:</p><div class="equation">\[A^{\text{batch}}_{i}=\frac{r_{i}-\operatorname{mean}\big(\{r_{j}\}_{j=1}^{K}\big)}{\operatorname{std}\big(\{r_{j}\}_{j=1}^{N\times K}\big)}\]</div><p class="eq-note">\(K\) is the number of sampled responses per prompt and \(N\times K\) the number of samples in the mini-batch.</p></li>
-        <li><span class="step-tag">Curriculum</span><h3>Short answers first</h3><p>Response length stands in for difficulty. Samples are sorted by length within each task, and mini-batches draw tasks in proportion to their frequency, so training moves from short, simple examples to long, complex ones while keeping the tasks balanced.</p></li>
+        <li><span class="step-tag">Reward</span><h3>Rewards from rendered output</h3><p>For the three generation tasks, predicted and reference SVGs are rendered and compared with perceptual similarity and pixel-space distances. For captioning, the reward is the BGE-M3 embedding similarity between predicted and reference captions.</p></li>
+        <li><span class="step-tag">Optimizer</span><h3>GRPO with batch-level normalization</h3><p>Standard GRPO normalizes rewards within each group of sampled responses. This variant divides the centered rewards by the standard deviation over the whole mini-batch:</p><div class="equation">\[A^{\text{batch}}_{i}=\frac{r_{i}-\operatorname{mean}\big(\{r_{j}\}_{j=1}^{K}\big)}{\operatorname{std}\big(\{r_{j}\}_{j=1}^{N\times K}\big)}\]</div><p class="eq-note">\(K\) is the number of sampled responses per prompt and \(N\times K\) the number of samples in the mini-batch.</p></li>
+        <li><span class="step-tag">Curriculum</span><h3>Length-based curriculum</h3><p>Response length is used as a proxy for difficulty. Samples are sorted by length within each task, and mini-batches draw tasks in proportion to their frequency, so training progresses from short to long examples with the tasks kept balanced.</p></li>
       </ol>
       <dl class="stats compact">
         <div><dt>Rollouts per step</dt><dd>1,344</dd><dd class="stat-note">168 samples × 8 rollouts</dd></div>
@@ -156,8 +156,8 @@
 
     <section class="block" id="results" aria-labelledby="results-heading">
       <p class="eyebrow">04 · Results</p>
-      <h2 id="results-heading">Frontier models still leave room, and the RL baseline matches GPT-4o</h2>
-      <p class="lede">The VectorGym score averages four task scores on a 0 to 100 scale. Gemini 3 Pro leads overall. The RL-trained Qwen3-VL 8B scores 66.05, above GPT-4o (64.93) and the much larger Qwen3-VL 235B (62.32).</p>
+      <h2 id="results-heading">Large gaps remain across tasks; the RL baseline matches GPT-4o</h2>
+      <p class="lede">The VectorGym score is the mean of four task scores (0 to 100). Gemini 3 Pro ranks first (73.17). The RL-trained Qwen3-VL 8B reaches 66.05, above GPT-4o (64.93) and the much larger Qwen3-VL 235B Instruct (62.32).</p>
       <figure class="chart" aria-labelledby="chart-caption">
         <figcaption id="chart-caption">Overall VectorGym score (higher is better; paper Table 2)</figcaption>
         <ol class="bars">
@@ -177,9 +177,9 @@
       </figure>
 
       <div class="findings">
-        <article><p class="task-tag">Difficulty</p><h3>Text is easiest, captioning hardest</h3><p>Best VLM-judge scores: Text2SVG 93.00 (GPT-5.1), SVG editing 81.20, Sketch2SVG 72.20 and SVG captioning 70.40 (all Gemini 3 Pro).</p></article>
-        <article><p class="task-tag">Sketches</p><h3>A gap that RL narrows but does not close</h3><p>On Sketch2SVG, the open Qwen3-VL 235B and 8B reach VLM-judge scores of 40.00 and 33.00. RL raises the 8B model to 46.00, still well below Gemini 3 Pro at 72.20. Models also rarely add color that the sketch does not have.</p></article>
-        <article><p class="task-tag">Captioning</p><h3>Metrics disagree</h3><p>The RL model has the highest BGE-M3 (79.76) and ROUGE (25.58) of any model, yet a lower VLM-judge score (35.80) than Qwen3-VL 235B (40.40).</p></article>
+        <article><p class="task-tag">Difficulty</p><h3>Text is easiest, captioning hardest</h3><p>Best VLM-judge scores are 93.00 for Text2SVG (GPT-5.1), and 81.20 for SVG editing, 72.20 for Sketch2SVG and 70.40 for SVG captioning (all Gemini 3 Pro).</p></article>
+        <article><p class="task-tag">Sketches</p><h3>RL narrows the sketch gap but does not close it</h3><p>On Sketch2SVG, the open Qwen3-VL 235B and 8B Instruct models reach VLM-judge scores of 40.00 and 33.00. RL raises the 8B model to 46.00, well below Gemini 3 Pro (72.20). Models also rarely add colors absent from the sketch.</p></article>
+        <article><p class="task-tag">Captioning</p><h3>Metrics disagree</h3><p>The RL model achieves the highest BGE-M3 (79.76) and ROUGE (25.58) scores of all models, but a lower VLM-judge score (35.80) than Qwen3-VL 235B Instruct (40.40).</p></article>
       </div>
 
       <figure class="window wide">

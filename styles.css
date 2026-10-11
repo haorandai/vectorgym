@@ -163,6 +163,8 @@ details.tables[open] summary::after { content: '−'; }
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); }
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding: 24px 0 40px; font-size: 13px; color: var(--faint); }
+.footer-inner a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.footer-inner a:hover { text-decoration-color: currentColor; }
 
 @media (max-width: 960px) {
   :root { --gutter: 16px; }
